@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: To Launch Instances 
+
+Resources:
+  myEC2instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: ami-0fc5d935ebf8bc3bc # valid only in us-east-1
+      InstanceType: t2.micro
+      KeyName: key1
+      SecurityGroupIds:
+        - !Ref mySecGroup
+
+  mySecGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: hands7
+      GroupDescription: "Allows SSH"
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+
+  myStaticIp:
+    Type: AWS::EC2::EIP
+    Properties:
+      Domain: vpc
+      InstanceId: !Ref myEC2instance
+      Tags:
+        - Key: Name
+          Value: MyEIP
