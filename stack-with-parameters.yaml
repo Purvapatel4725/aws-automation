@@ -47,3 +47,9 @@ Resources:
       Tags:
         - Key: Name
           Value: MyEIP
+
+
+#  aws cloudformation create-stack --stack-name stack1 --template-body file://{filename}.yaml (Create Instance)
+#  aws cloudformation update-stack --stack-name stack1 --template-body file://{filename}.yaml (Update Existing Instance)
+#  aws cloudformation delete-stack --stack-name stack1 (Delete Instance)
+#  For this go to Dashboard > search cloudFormation > go to Templates > View in infrastructure composer > Template > validate > update
