@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: INFR2670 - Cloudformation hands-on
+Description: To Launch Instances Using CloudFormation
 
 Parameters:
   FindAMI:
